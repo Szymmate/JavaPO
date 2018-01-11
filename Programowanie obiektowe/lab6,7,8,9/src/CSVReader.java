@@ -94,7 +94,6 @@ public class CSVReader {
         if(columnIndex>=current.length){
             return true;
         }
-        //return false;
         return current[columnIndex].isEmpty();
     }
     boolean isMissing(String columnLabel){

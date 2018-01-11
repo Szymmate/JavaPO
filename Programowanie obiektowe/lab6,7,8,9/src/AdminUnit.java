@@ -18,7 +18,7 @@ public class AdminUnit {
         }else {
             a.append("jednostka podstawowa");
         }
-        a.append(" poziom administracyjny: ").append(adminLevel).append(" powierzchnia: ").append(area).append(" populacja: ").append(population).append(" gęstość zaludnienia: ").append(density);
+        a.append(" poziom administracyjny: ").append(adminLevel).append(" powierzchnia: ").append(area).append(" populacja: ").append(population).append(" gęstość zaludnienia: ").append(density).append(" x1 x2 y1 y2 ").append(bbox.toString());
         return a.toString();
     }
 }

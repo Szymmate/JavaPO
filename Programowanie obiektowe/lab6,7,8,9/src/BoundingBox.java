@@ -15,6 +15,11 @@ public class BoundingBox {
         xmax=0;
         ymax=0;
     }
+    public String toString(){
+        StringBuilder a=new StringBuilder();
+        a.append(xmin).append(" ").append(" ").append(xmax).append(" ").append(ymin).append(" ").append(ymax).append(" ");
+        return a.toString();
+    }
     void addPoint(double x, double y){
         if (xmin > x) {
             xmin = x;
@@ -36,7 +41,7 @@ public class BoundingBox {
         return false;
     }
     boolean contains(BoundingBox bb){
-        if(bb.xmin>xmin&&bb.xmax>xmax&&bb.ymin>ymin&&bb.ymax>ymin) {
+        if(bb.xmin>xmin&&bb.xmax<xmax&&bb.ymin>ymin&&bb.ymax<ymax) {
             return true;
         }
         return false;
@@ -70,7 +75,6 @@ public class BoundingBox {
             return false;
         }
     }
-
     double getCenterX(){
         if(!isEmpty()){
             return (xmax+xmin)/2;
@@ -87,7 +91,8 @@ public class BoundingBox {
         if(isEmpty()||bbx.isEmpty()){
             throw new RuntimeException("one is empty");
         }
-        return Math.sqrt(Math.pow(getCenterX()-bbx.getCenterX(),2)*+Math.pow(getCenterY()-bbx.getCenterY(),2));
+        return Math.sqrt((getCenterX()-bbx.getCenterX())*(getCenterX()-bbx.getCenterX())+(getCenterY()-bbx.getCenterY())*(getCenterY()-bbx.getCenterY()));
     }
+
 
 }
